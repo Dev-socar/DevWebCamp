@@ -25,13 +25,7 @@
             <?php foreach ($dias as $dia) { ?>
                 <div>
                     <label for="<?php echo strtolower($dia->nombre); ?>"><?php echo $dia->nombre; ?></label>
-                    <input 
-                    type="radio" 
-                    id="<?php echo strtolower($dia->nombre); ?>" 
-                    name="dia" 
-                    value="<?php echo $dia->id; ?>"
-                    <?php echo ($evento->dia_id === $dia->id) ? 'checked' : ''; ?>
-                    >
+                    <input type="radio" id="<?php echo strtolower($dia->nombre); ?>" name="dia" value="<?php echo $dia->id; ?>" <?php echo ($evento->dia_id === $dia->id) ? 'checked' : ''; ?>>
                 </div>
             <?php } ?>
         </div>
@@ -55,7 +49,7 @@
         <label for="ponentes" class="formulario__label">Ponente</label>
         <input type="text" class="formulario__input" id="ponentes" placeholder="Buscar Ponente">
         <ul class="listado-ponentes" id="listado-ponentes"></ul>
-        <input type="hidden" name="ponente_id" value="">
+        <input type="hidden" name="ponente_id" value="<?php echo $evento->ponente_id; ?>">
     </div>
     <div class="formulario__campo">
         <label for="disponibles" class="formulario__label">Lugares Disponibles</label>

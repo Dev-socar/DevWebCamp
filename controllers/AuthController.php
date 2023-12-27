@@ -2,6 +2,7 @@
 
 namespace Controllers;
 
+use AllowDynamicProperties;
 use Classes\Email;
 use Model\Usuario;
 use MVC\Router;

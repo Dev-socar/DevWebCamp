@@ -13,23 +13,23 @@ class PonentesController
     //LEER
     public static function index(Router $router)
     {
-        
+        if (!is_Admin()) {
+            header('Location: /login');
+        }
         $pagina_actual = $_GET['page'];
         $pagina_actual = filter_var($pagina_actual, FILTER_VALIDATE_INT);
-        if(!$pagina_actual || $pagina_actual<1){
+        if (!$pagina_actual || $pagina_actual < 1) {
             header('Location: /admin/ponentes?page=1');
         }
         $registros_por_pagina = 10;
         $total_registros = Ponente::total();
         $paginacion = new Paginacion($pagina_actual, $registros_por_pagina, $total_registros);
-        if($paginacion->total_paginas() < $pagina_actual){
+        if ($paginacion->total_paginas() < $pagina_actual) {
             header('Location: /admin/ponentes?page=1');
         }
         $ponentes = Ponente::paginar($registros_por_pagina, $paginacion->offset());
 
-        if(!is_Admin()){
-            header('Location: /login');
-        }
+
 
         // Render a la vista 
         $router->render('admin/ponentes/index', [
@@ -154,7 +154,7 @@ class PonentesController
                     $imagen_webp->save($carpeta_imagenes . '/' . $nombre_imagen . '.webp');
                 }
                 $resultado = $ponente->guardar();
-                if($resultado){
+                if ($resultado) {
                     header('Location: /admin/ponentes');
                 }
             }
@@ -170,22 +170,22 @@ class PonentesController
     }
 
     //ELIMINAR
-    public static function eliminar(){
-        if (!is_Admin()) {
-            header('Location: /login');
-        }
+    public static function eliminar()
+    {
+
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            if (!is_Admin()) {
+                header('Location: /login');
+            }
             $id = $_POST['id'];
             $ponente = Ponente::find($id);
-            if(!isset($ponente)){
+            if (!isset($ponente)) {
                 header('Location: /admin/ponentes');
             }
             $resultado = $ponente->eliminar();
-            if($resultado){
+            if ($resultado) {
                 header('Location: /admin/ponentes');
             }
-
         }
-
     }
 }
