@@ -16,6 +16,7 @@ class Usuario extends ActiveRecord {
     public $token;
     public $admin;
 
+    
     public $password_actual;
     public $password_nuevo;
 

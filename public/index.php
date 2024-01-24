@@ -2,15 +2,16 @@
 
 require_once __DIR__ . '/../includes/app.php';
 
+use MVC\Router;
 use Controllers\APIEventos;
 use Controllers\APIPonentes;
-use MVC\Router;
 use Controllers\AuthController;
-use Controllers\DashboardController;
 use Controllers\EventosController;
 use Controllers\PaginasController;
-use Controllers\PonentesController;
 use Controllers\RegalosController;
+use Controllers\PonentesController;
+use Controllers\RegistroController;
+use Controllers\DashboardController;
 use Controllers\RegistradosController;
 
 $router = new Router();
@@ -64,6 +65,14 @@ $router->get('/api/ponente', [APIPonentes::class, 'ponente']);
 $router->get('/admin/registrados', [RegistradosController::class, 'index']);
 
 $router->get('/admin/regalos', [RegalosController::class, 'index']);
+
+//Registro de usuarios
+$router->get('/finalizar-registro', [RegistroController::class, 'crear']);
+$router->post('/finalizar-registro/gratis', [RegistroController::class, 'gratis']);
+$router->post('/finalizar-registro/pagar', [RegistroController::class, 'pagar']);
+
+//Boleto Virtual
+$router->get('/boleto', [RegistroController::class, 'boleto']);
 
 //área publica
 $router->get('/', [PaginasController::class, 'index']);

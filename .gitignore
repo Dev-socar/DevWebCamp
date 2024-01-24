@@ -1,4 +1,6 @@
+accounts.txt
 node_modules/
 package-lock.json
 composer.lock
+vendor
 .DS_Store
