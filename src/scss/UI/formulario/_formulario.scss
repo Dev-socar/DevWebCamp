@@ -74,7 +74,8 @@
     @include m.boton(v.$azul, v.$blanco);
     width: auto;
     align-self: flex-start;
-    &--registrar {
+    &--registrar,
+    &--full {
       width: 100%;
     }
   }

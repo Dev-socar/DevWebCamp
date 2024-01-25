@@ -87,4 +87,16 @@
     &__autor-nombre{
         font-weight: v.$bold;
     }
+    &__agregar{
+        @include m.boton(darken(v.$azul,15%), v.$blanco);
+        margin-top: 1rem;
+        &:disabled{
+            opacity: .5;
+            cursor: not-allowed;
+        }
+
+        &--whorshops{
+            @include m.boton(darken(v.$secundario,15%), v.$blanco);
+        }
+    }
 }

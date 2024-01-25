@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,21 +14,23 @@
     <link rel="stylesheet" href="/build/css/app.css">
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 
-    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
+
 <body>
 
-    <?php 
-        include_once __DIR__ .'/templates/header.php';
-        echo $contenido;
-        include_once __DIR__ .'/templates/footer.php'; 
+    <?php
+    include_once __DIR__ . '/templates/header.php';
+    echo $contenido;
+    include_once __DIR__ . '/templates/footer.php';
     ?>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>AOS.init(
-        {
+    <script>
+        AOS.init({
             once: true
-        }
-    );</script>
+        });
+    </script>
     <script src="/build/js/main.min.js" defer></script>
 </body>
+
 </html>
