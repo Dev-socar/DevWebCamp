@@ -1576,6 +1576,51 @@ h3 {
   cursor: pointer;
 }
 
+.bloques__grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr 1fr;
+}
+.bloques__grid .bloque:last-child {
+  grid-column: 1/4;
+  color: #1a1b15;
+}
+
+.bloque {
+  padding: 3rem;
+  border-radius: 1rem;
+  max-height: 20rem;
+  color: #ffffff;
+}
+.bloque:nth-child(1) {
+  background-color: #0f8aff;
+}
+.bloque:nth-child(2) {
+  background-color: #3b00d1;
+}
+.bloque:nth-child(3) {
+  background-color: #900000;
+}
+.bloque__heading {
+  margin: 0 0 1rem 0;
+  font-weight: 700;
+  font-size: 2.5rem;
+}
+.bloque__contenido {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+.bloque__icono {
+  font-size: 6rem;
+}
+.bloque__texto {
+  font-weight: 700;
+  font-size: 3rem;
+}
+
 .eventos-registro {
   width: min(95%, 140rem);
   margin: 0 auto;
