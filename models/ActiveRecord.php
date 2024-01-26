@@ -142,6 +142,21 @@ class ActiveRecord {
         $total = $resultado->fetch_array();
         return array_shift($total);
     }
+    //Obtiene el numero total de registros con un Array Where
+    public static function totalArray($array = [])
+    {
+        $query = "SELECT COUNT(*) FROM " . static::$tabla . " WHERE ";
+        foreach ($array as $key => $value) {
+            if ($key == array_key_last($array)) {
+                $query .= " {$key} = '{$value}'";
+            } else {
+                $query .= " {$key} = '{$value}' AND ";
+            }
+        }
+        $resultado = self::$db->query($query);
+        $total = $resultado->fetch_array();
+        return array_shift($total);
+    }
 
 
     // Busqueda Where con Columna 
@@ -152,9 +167,14 @@ class ActiveRecord {
     }
 
     //Retornar los registros por un orden
-
     public static function ordenar($columna, $orden){
         $query = "SELECT * FROM " . static::$tabla . " ORDER BY {$columna}  {$orden} ";
+        $resultado = self::consultarSQL($query);
+        return $resultado;
+    }
+    //Retornar por orden con un limite
+    public static function ordenarLimite($columna, $orden, $limite){
+        $query = "SELECT * FROM " . static::$tabla . " ORDER BY {$columna}  {$orden} LIMIT {$limite} ";
         $resultado = self::consultarSQL($query);
         return $resultado;
     }

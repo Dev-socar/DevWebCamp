@@ -155,11 +155,11 @@ class RegistroController
             return;
         }
 
-        //Redireccionar a boleto en caso de finalizar el registro
-        if(isset($registro->regalo_id) && $registro->paquete_id === "1"){
-            header('Location: /boleto?id=' . urlencode($registro->token));
-            return;
-        }
+        // //Redireccionar a boleto en caso de finalizar el registro
+        // if(isset($registro->regalo_id) && $registro->paquete_id === "1"){
+        //     header('Location: /boleto?id=' . urlencode($registro->token));
+        //     return;
+        // }
 
         $eventos = Evento::ordenar('hora_id', 'ASC');
 

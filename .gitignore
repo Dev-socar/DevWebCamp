@@ -1,6 +1,5 @@
 accounts.txt
-node_modules/
-package-lock.json
-composer.lock
+node_modules
 vendor
 .DS_Store
+includes/.env

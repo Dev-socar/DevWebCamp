@@ -7,6 +7,9 @@
     flex-direction: column;
     background-color: v.$gris-claro;
 
+    &__heading{
+        margin: 1rem 0;
+    }
     &__header{
         background-color: v.$gris-oscuro;
         padding: 2rem;
@@ -102,6 +105,10 @@
     }
     &__formulario{
         @extend .dashboard__contenedor;
+        @include m.contenedor-md;
+    }
+
+    &__grafica{
         @include m.contenedor-md;
     }
 }
